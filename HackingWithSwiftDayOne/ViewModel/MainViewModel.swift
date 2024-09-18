@@ -13,8 +13,8 @@ class MainViewModel {
     
     func getImages() {
         let myFileManager = FileManager.default
-        let path = Bundle.main.resourcePath!
-        let items = try! myFileManager.contentsOfDirectory(atPath: path)
+        guard let path = Bundle.main.resourcePath else { return }
+        guard let items = try? myFileManager.contentsOfDirectory(atPath: path) else { return }
         
         for item in items {
             if item.hasPrefix("nssl") {
