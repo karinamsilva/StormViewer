@@ -8,8 +8,6 @@
 import UIKit
 
 class DetailController: UIViewController {
-    
-    var selectedImage: String?
     weak var coordinator: Coordinator?
     
     let stormImage: UIImageView = {
