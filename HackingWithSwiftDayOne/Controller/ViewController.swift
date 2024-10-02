@@ -32,7 +32,17 @@ class ViewController: UIViewController {
         setupTableView()
         setConstraints()
         setupTitle()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareApp))
     }
+
+    @objc func shareApp() {
+        let text = "You should check this app - Storm Viewer"
+        
+        let controller = UIActivityViewController(activityItems: [text], applicationActivities: [])
+        controller.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(controller, animated: true)
+    }
+    
     
     private func setupTableView() {
         tableView.delegate = self
